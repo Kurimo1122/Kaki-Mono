@@ -51,4 +51,4 @@ production:
   <<: *default
   database: Kaki-Mono_production
   username: Kaki-Mono
-  password: <%= ENV['KAKI-MONO_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
