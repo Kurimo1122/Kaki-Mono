@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
+#set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
 
 set :application, 'Kaki-Mono'
 set :repo_url, 'git@github.com:Kurimo1122/Kaki-Mono.git'
@@ -18,7 +18,7 @@ set :pty, true
 set :rbenv_ruby, '2.3.3'
 
 # 必要に応じて、gitignoreしているファイルにLinkを貼る
-#set :linked_files, %w{.rbenv-vars}
+set :linked_files, %w{.rbenv-vars}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 set :use_sudo, false
