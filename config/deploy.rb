@@ -1,6 +1,8 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
+
 set :application, 'Kaki-Mono'
 set :repo_url, 'git@github.com:Kurimo1122/Kaki-Mono.git'
 
