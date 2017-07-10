@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Kaki-Mono_production
-  username: Kaki-Mono
+  username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
