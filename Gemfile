@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  #gem 'unicorn'
+  gem 'unicorn'
 end
 
 group :development, :test do
@@ -54,13 +54,10 @@ group :development do
 
   # 自動デプロイのタメのやつら
   gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
-  gem 'capistrano-rbenv-vars'
-  gem 'capistrano3-nginx'
   gem 'capistrano-bundler'
-  gem 'capistrano-upload-config'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

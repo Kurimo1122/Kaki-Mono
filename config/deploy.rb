@@ -6,29 +6,21 @@ lock "3.8.2"
 set :application, 'Kaki-Mono'
 set :repo_url, 'git@github.com:Kurimo1122/Kaki-Mono.git'
 
-# Default branch is :master
-set :branch, ENV['BRANCH'] || 'master'
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
+set :rbenv_type, :user
+set :rbenv_ruby, '2.3.3'
+
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: ['~/.ssh/key_pair.pem']  ※例：/Users/yusukeyamane/.ssh/key_pem.pem
+
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :keep_releases, 5
+
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :confirm do
-    on roles(:app) do
-      puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
-      puts 'Are you sure? [y/n]'
-      ask :answer, 'n'
-      if fetch(:answer) != 'y'
-        puts 'deploy stopped'
-        exit
-      end
-    end
+  task :restart do
+    invoke 'unicorn:restart'
   end
-
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:app) do
-      invoke 'deploy'
-    end
-  end
-
-  before :starting, :confirm
 end
