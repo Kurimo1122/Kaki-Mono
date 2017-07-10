@@ -9,7 +9,7 @@ require 'capistrano/bundler'
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
 require 'capistrano/rbenv'
-require 'capistrano/rbenv_vars'
+#require 'capistrano/rbenv_vars'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 
