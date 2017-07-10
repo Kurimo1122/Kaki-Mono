@@ -32,7 +32,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
 
 # Set Gemfile
-# set :bundle_gemfile,  "/var/www/myapp/current/Gemfile"
+set :bundle_gemfile,  "/var/www/Kaki-Mono/current/Gemfile"
 
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
