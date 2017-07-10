@@ -1,6 +1,9 @@
 require "capistrano/setup"
 require "capistrano/deploy"
 
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 # add requires
 require 'capistrano/bundler'
 require 'capistrano/puma'
